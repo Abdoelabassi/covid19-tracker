@@ -11,6 +11,11 @@ body{
   display: flex;
 }
 
+.app__left{
+
+  flex: 0.9;
+}
+
 .app__header{
 
   display: flex;
