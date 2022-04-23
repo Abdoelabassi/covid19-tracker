@@ -11,7 +11,8 @@ import {
 
 import InfoBox from "./Components/InfoBox/InfoBox"
 import Mapp from "./Components/Map/Map"
-
+import Table from "./Components/Table/Table"
+import {sortData} from "./utils"
 
 
 //api: https://disease.sh/v3/covid19/countries
@@ -21,6 +22,7 @@ function App() {
   const [countries, setContries]  = useState([]);
   const [country, setCountry] = useState('Worldwide');
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
 
 //for worldwide cases
@@ -49,10 +51,14 @@ useEffect(()=>{
         name: country.country, 
         value: country.countryInfo.iso2, 
       }));
+
+      const sorted = sortData(data)
+
+      setTableData(sorted);
       setContries(countries);
     })
 
-
+console.log(tableData);
 
     
 
@@ -84,7 +90,6 @@ useEffect(()=>{
     })
   }
 
-  console.log("Country info >>>> :", countryInfo)
 
   return (
     <div className="app"> {/*BEM convention of classeNames*/}
@@ -122,6 +127,7 @@ useEffect(()=>{
           <Card className="app__right">
             <CardContent>
               <h3>Live Cases by Country</h3>
+              <Table countries={tableData}/>
               <h3>Worldwide new cases </h3>
             </CardContent>
             </Card>
