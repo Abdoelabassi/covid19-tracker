@@ -12,8 +12,9 @@ import {
 import InfoBox from "./Components/InfoBox/InfoBox"
 import Mapp from "./Components/Map/Map"
 import Table from "./Components/Table/Table"
+import LineGraph from "./Components/LineGraph/LineGraph"
 import {sortData} from "./utils"
-
+import numeral from "numeral"
 
 //api: https://disease.sh/v3/covid19/countries
 
@@ -115,9 +116,9 @@ console.log(tableData);
 
           <div className="app__stats">
 
-            <InfoBox title="CoronaVirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-            <InfoBox title="Recovered cases" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-            <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}  />
+            <InfoBox title="CoronaVirus Cases" cases={numeral(countryInfo.todayCases).format("0a")} total={numeral(countryInfo.cases).format("0a")}/>
+            <InfoBox title="Recovered cases" cases={numeral(countryInfo.todayRecovered).format("0a")} total={numeral(countryInfo.recovered).format("0a")} />
+            <InfoBox title="Deaths" cases={numeral(countryInfo.todayDeaths).format("0a")} total={numeral(countryInfo.deaths).format("0a")}  />
 
           </div>
 
@@ -129,6 +130,7 @@ console.log(tableData);
               <h3>Live Cases by Country</h3>
               <Table countries={tableData}/>
               <h3>Worldwide new cases </h3>
+              <LineGraph/>
             </CardContent>
             </Card>
 
