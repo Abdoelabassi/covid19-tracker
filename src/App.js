@@ -16,7 +16,7 @@ import LineGraph from "./Components/LineGraph/LineGraph"
 import {sortData} from "./utils"
 import numeral from "numeral"
 import "leaflet/dist/leaflet.css"
-
+import { prettyPrintStat } from "./utils"
 //api: https://disease.sh/v3/covid19/countries
 
 function App() {
@@ -125,9 +125,9 @@ useEffect(()=>{
 
           <div className="app__stats">
 
-            <InfoBox title="CoronaVirus Cases" cases={numeral(countryInfo.todayCases).format("0a")} total={numeral(countryInfo.cases).format("0a")}/>
-            <InfoBox title="Recovered cases" cases={numeral(countryInfo.todayRecovered).format("0a")} total={numeral(countryInfo.recovered).format("0a")} />
-            <InfoBox title="Deaths" cases={numeral(countryInfo.todayDeaths).format("0a")} total={numeral(countryInfo.deaths).format("0a")}  />
+            <InfoBox title="CoronaVirus Cases" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
+            <InfoBox title="Recovered cases" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)} />
+            <InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}  />
 
           </div>
 

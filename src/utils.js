@@ -38,6 +38,10 @@ export const sortData = (data)=>{
 
 }
 
+
+export const prettyPrintStat = (stat) =>
+  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
+
 //show the number of cases on the map using redius display
 
 export const showDataOnMap = (data, casesType = "cases") =>
