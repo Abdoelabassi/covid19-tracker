@@ -15,6 +15,7 @@ import Table from "./Components/Table/Table"
 import LineGraph from "./Components/LineGraph/LineGraph"
 import {sortData} from "./utils"
 import numeral from "numeral"
+import "leaflet/dist/leaflet.css"
 
 //api: https://disease.sh/v3/covid19/countries
 
@@ -24,7 +25,9 @@ function App() {
   const [country, setCountry] = useState('Worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-
+  const [mapCenter, setMapCenter] = useState({lat:41, lng:20});
+  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
 //for worldwide cases
 
@@ -57,9 +60,8 @@ useEffect(()=>{
 
       setTableData(sorted);
       setContries(countries);
+      setMapCountries(data);
     })
-
-console.log(tableData);
 
     
 
@@ -86,6 +88,13 @@ console.log(tableData);
       setCountry(countryCode);
 
       setCountryInfo(data);
+      console.log(data);
+
+
+
+      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+
+      setMapZoom(4);
 
 
     })
@@ -122,7 +131,7 @@ console.log(tableData);
 
           </div>
 
-          <Mapp/>
+          <Mapp countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
           </div>
 
           <Card className="app__right">
