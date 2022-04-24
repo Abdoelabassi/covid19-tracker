@@ -1,5 +1,5 @@
 import './table.css'
-
+import { prettyPrintStat } from "../../utils"
 const Table = ({ countries }) =>{
 
 
@@ -10,7 +10,7 @@ const Table = ({ countries }) =>{
 			{countries.map(({country, cases}) =>(
 				<tr>
 					<td>{country}</td>
-					<td><strong>{cases}</strong></td>
+					<td><strong>{prettyPrintStat(cases)}</strong></td>
 
 				</tr>
 			))}
