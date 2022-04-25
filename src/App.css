@@ -11,6 +11,13 @@ body{
   display: flex;
 }
 
+.app__right .MuiCardContent-root{
+
+  display:flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .app__left{
 
   flex: 0.9;

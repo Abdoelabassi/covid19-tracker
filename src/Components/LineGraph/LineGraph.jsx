@@ -1,11 +1,19 @@
 
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { Chart, registerables } from 'chart.js';
 import numeral from "numeral";
+import "chartjs-adapter-date-fns";
+import "chartjs-adapter-moment";
+
+
+
+Chart.register(...registerables);
+
 
 const options = {
   legend: {
-    display: false,
+    display: true,
   },
   elements: {
     point: {
@@ -23,17 +31,15 @@ const options = {
     },
   },
   scales: {
-    xAxes: [
-      {
+    x: {
+      
         type: "time",
         time: {
           format: "MM/DD/YY",
           tooltipFormat: "ll",
         },
       },
-    ],
-    yAxes: [
-      {
+    y: {
         gridLines: {
           display: false,
         },
@@ -41,17 +47,16 @@ const options = {
           // Include a dollar sign in the ticks
           callback: function (value, index, values) {
             return numeral(value).format("0a");
-          },
+          }
         },
-      },
-    ],
-  },
+      }
+  }
 };
 
 const buildChartData = (data, casesType) => {
   let chartData = [];
   let lastDataPoint;
-  for (let date in data.cases) {
+  for (let date in data[casesType]) {
     if (lastDataPoint) {
       let newDataPoint = {
         x: date,
@@ -76,7 +81,7 @@ function LineGraph({ casesType, ...props }) {
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
-          console.log(chartData);
+          //console.log(chartData);
           // buildChart(chartData);
         });
     };
@@ -98,6 +103,8 @@ function LineGraph({ casesType, ...props }) {
             ],
           }}
           options={options}
+          style={{vh:50}}
+          datasetIdKey="id"
         />
       )}
     </div>
