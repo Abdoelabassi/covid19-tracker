@@ -12,6 +12,11 @@ react-charjs-2 chartjs to dispaly a line plot
 
 numeral for numbers formating
 
+### Data
+
+data fetched from https://disease.sh API
+
+
 
 ### Screenshots
 
