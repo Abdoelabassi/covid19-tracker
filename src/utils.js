@@ -44,7 +44,7 @@ export const prettyPrintStat = (stat) =>
 
 //show the number of cases on the map using redius display
 
-export const showDataOnMap = (data, casesType = "cases") =>
+export const showDataOnMap = (data, casesType) =>
   data.map((country) => (
     <Circle
       center={[country.countryInfo.lat, country.countryInfo.long]}

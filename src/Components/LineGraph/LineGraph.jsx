@@ -1,34 +1,54 @@
 
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import { Chart, registerables } from 'chart.js';
 import numeral from "numeral";
 import "chartjs-adapter-date-fns";
 import "chartjs-adapter-moment";
-
-
-
-Chart.register(...registerables);
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale
+} from 'chart.js';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale
+);
 
 
 const options = {
-  legend: {
-    display: true,
-  },
+  responsive:true,
+  
   elements: {
     point: {
       radius: 0,
     },
   },
   maintainAspectRatio: false,
-  tooltips: {
-    mode: "index",
-    intersect: false,
-    callbacks: {
+  plugins :{
+    legend: {
+      display: false,
+    },
+    tooltip: {
+     mode: "index",
+     intersect: false,
+     callbacks: {
       label: function (tooltipItem, data) {
         return numeral(tooltipItem.value).format("+0,0");
-      },
+      }
     },
+  },
   },
   scales: {
     x: {
