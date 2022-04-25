@@ -15,15 +15,15 @@ numeral for numbers formating
 
 ### Screenshots
 
-![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/develop/screenshots/S1.png)
+![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/blob/develop/screenshots/S1.png?raw=true)
 
 ------
 
-![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/develop/screenshots/S2.png)
+![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/blob/develop/screenshots/S2.png?raw=true)
 
 -----
 
-![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/develop/screenshots/S1.png)
+![alt ilg](https://github.com/Abdoelabassi/covid19-tracker/blob/develop/screenshots/S1.png?raw=true)
 
 
 
