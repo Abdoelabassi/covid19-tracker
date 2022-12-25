@@ -1,7 +1,7 @@
 ### This is Covid-19 tracker app
- 
+``` 
 run npm install && npm start
-
+```
 deployed  with firebase : https://covid19-tracker-65c36.web.app
 
 ### Features
